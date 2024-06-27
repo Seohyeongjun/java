@@ -40,6 +40,7 @@ public class java_0626 {
 		System.out.print("월 급여액 : ");
 		monthSalary1=scan.nextInt();
 		
+		scan.nextLine();
 		System.out.println("\n< 직원 2 >");
 		System.out.print("이름 : ");
 		name2=scan.nextLine();
