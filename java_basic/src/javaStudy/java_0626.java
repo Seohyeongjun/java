@@ -40,7 +40,7 @@ public class java_0626 {
 		System.out.print("월 급여액 : ");
 		monthSalary1=scan.nextInt();
 		
-		scan.nextLine();
+		scan.nextLine();			// 버퍼 초기화, 입력부분의 버퍼를 초기화 한다. 숫자입력 다음에 문자입력을 받는 경우 특히 더 초기화를 해야 함
 		System.out.println("\n< 직원 2 >");
 		System.out.print("이름 : ");
 		name2=scan.nextLine();
@@ -60,7 +60,10 @@ public class java_0626 {
 		System.out.printf("이름 : %s, 소속부서명 : %s, 월 급여액 : %d원 \n", name2, teamName2, monthSalary2);
 		System.out.printf("실수령액 : %d원\n", realSalary2);
 	
-		
+		/*
+		 * next() - 스페이스키, 탭키, 엔터키를 누르면 입력 끝
+		 * next() - 엔터키 누르면 입력 끝
+		 */
 	
 		
 	}
