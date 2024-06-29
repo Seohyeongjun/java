@@ -14,7 +14,12 @@ public class bingo {
 		int userNum=0;
 		int comNum=0;
 		int count=0;
-		int bingoCount=0;
+		int bingoCountUser=0;
+		int bingoCountCom=0;
+		int rowCount=0;		// °¡·Î ºù°í 
+		int verCount=0;		// ¼¼·Î ºù°í
+		int diagonal1=0;	// ´ë°¢¼± ºù°í
+		int diagonal2=0;	// ´ë°¢¼± ºù°í
 		
 		/*  get user bingo number		*/
 		for(int i=0; i<randomNumUser.length; i++)
@@ -97,9 +102,84 @@ public class bingo {
 					randomNumCom[i]=0;
 			}
 			
-			// bingoCount
+			// user bingoCount
+			for(int i=0; i<randomNumUser.length/5; i++)
+			{
+				for(int j=0; j<randomNumUser.length/5; j++)	// °¡·Î ºù°í È®ÀÎ
+				{
+					if(randomNumUser[i*5+j]==0)
+						rowCount++;
+				}
+				if(rowCount==5)
+					bingoCountUser++;
 
-		
+				for(int j=0; j<randomNumUser.length/5; j++)	// ¼¼·Î ºù°í È®ÀÎ
+				{
+					if(randomNumUser[i+j*5]==0)
+						verCount++;
+				}
+				if(verCount==5)
+					bingoCountUser++;
+				
+				if(randomNumUser[i*6]==0)		// ´ë°¢¼± ºù°í È®ÀÎ(ÁÂ->¿ì, 0->24)
+					diagonal1++;
+				
+				if(diagonal1==5)
+					bingoCountUser++;
+
+				if(randomNumUser[(i+1)*4]==0) 	// ´ë°¢¼± ºù°í È®ÀÎ(¿ì->ÁÂ, 4->20)
+					diagonal2++;
+				
+				if(diagonal2==5)
+					bingoCountUser++;
+
+				 rowCount=0;
+				 verCount=0;				 
+			}
+			diagonal1=0;
+			diagonal2=0;
+
+			// computer bingoCount
+			for(int i=0; i<randomNumCom.length/5; i++)
+			{
+				for(int j=0; j<randomNumCom.length/5; j++)	// °¡·Î ºù°í È®ÀÎ
+				{
+					if(randomNumCom[i*5+j]==0)
+						rowCount++;
+				}
+				if(rowCount==5)
+					bingoCountCom++;
+
+				for(int j=0; j<randomNumCom.length/5; j++)	// ¼¼·Î ºù°í È®ÀÎ
+				{
+					if(randomNumCom[i+j*5]==0)
+						verCount++;
+				}
+				if(verCount==5)
+					bingoCountCom++;
+				
+				if(randomNumCom[i*6]==0)		// ´ë°¢¼± ºù°í È®ÀÎ(ÁÂ->¿ì, 0->24)
+					diagonal1++;
+				
+				if(diagonal1==5)
+					bingoCountCom++;
+
+				if(randomNumCom[(i+1)*4]==0) 	// ´ë°¢¼± ºù°í È®ÀÎ(¿ì->ÁÂ, 4->20)
+					diagonal2++;
+				
+				if(diagonal2==5)
+					bingoCountCom++;
+				
+				 rowCount=0;
+				 verCount=0;
+			}
+			diagonal1=0;
+			diagonal2=0;
+
+		System.out.println("user : "+bingoCountUser+" come: "+bingoCountCom);
+		bingoCountUser=0;
+		bingoCountCom=0;
+				
 		}
 		
 	}
