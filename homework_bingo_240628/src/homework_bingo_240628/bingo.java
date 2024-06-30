@@ -122,7 +122,7 @@ public class bingo {
 					i=0;
 				}
 			}
-			
+///////////////////////////////////////////////////////////////////////////////////////////			
 			System.out.println(comNum);
 			
 			for(int i=0; i<randomNumCom.length; i++)
