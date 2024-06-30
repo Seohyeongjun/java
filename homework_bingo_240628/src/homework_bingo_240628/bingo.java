@@ -22,20 +22,26 @@ public class bingo {
 		int diagonal1=0;	// 대각선 빙고
 		int diagonal2=0;	// 대각선 빙고
 		
-		int rowBingo1=0;	// 가로 빙고 카운트
-		int rowBingo2=0;
-		int rowBingo3=0;
-		int rowBingo4=0;
-		int rowBingo5=0;
+		int [] rowBingo = new int[5];	// 가로 빙고 카운트		
+		int [] verBingo = new int[5];	// 세로 빙고 카운트
+		int [] diaBingo = new int[2];	// 대각선 빙고 카운트
 		
-		int verBingo1=0;	// 세로 빙고 카운트
-		int verBingo2=0;
-		int verBingo3=0;
-		int verBingo4=0;
-		int verBingo5=0;
-
-		int diaBingo1=0;	// 대각선 빙고 카운트
-		int diaBingo2=0;
+		int nextBingoNum=0; 
+		
+		int row_1=0;
+		int row_2=1;
+		int row_3=2;
+		int row_4=3;
+		int row_5=4;
+		
+		int ver_1=0;
+		int ver_2=1;
+		int ver_3=2;
+		int ver_4=3;
+		int ver_5=4;
+		
+		int dia_1=0;
+		int dia_2=1;
 		
 		/*  get user bingo number		*/
 		for(int i=0; i<randomNumUser.length; i++)
@@ -71,6 +77,9 @@ public class bingo {
 
 		while(true) 
 		{
+//			bingoCountUser=0;	// 유저 빙고 초기화
+//			bingoCountCom=0;	// 컴퓨터 빙고 초기화
+
 			System.out.println("  >> user                     computer <<");
 			for(int i=0; i<randomNumUser.length/5; i++)
 			{
@@ -93,6 +102,22 @@ public class bingo {
 				System.out.print("\n");
 			}
 			
+			if(bingoCountUser>=5 || bingoCountCom>=5)
+			{
+				if(bingoCountUser==5)
+					System.out.println(" ***  user 승 ***");
+	
+				else if(bingoCountUser>5)
+					System.out.println(" -- user bingo over --");
+				
+				else if(bingoCountCom==5)
+					System.out.println(" *** com 승 ***");
+	
+				else if(bingoCountCom>5)
+					System.out.println(" -- com bingo over --");
+				
+				break;
+			}			
 			/* select user bingo number */
 			System.out.print("user 숫자 입력 : ");
 			userNum=input.nextInt();
@@ -106,6 +131,23 @@ public class bingo {
 					randomNumCom[i]=0;
 			}
 			
+			int [] rowTemp_1=new int[5];
+			int [] rowTemp_2=new int[5];
+				
+			for(int i=0; i<randomNumCom.length/5; i++)
+			{ 
+				for(int j=0; j<randomNumCom.length/5-1; j++)
+				{
+					if(rowBingo[j]>=rowBingo[j+1])
+					{
+						rowTemp_1[j]=rowBingo[j];
+						rowTemp_2[j]=j;
+					}
+				}
+			}
+			
+
+
 			/* select computer bingo number */
 			System.out.print("com 숫자 입력 : ");
 //			comNum=input.nextInt();			// 컴퓨터 빙고 숫자 입력
@@ -134,6 +176,9 @@ public class bingo {
 					randomNumCom[i]=0;
 			}
 			
+			bingoCountUser=0;	// 유저 빙고 초기화
+			bingoCountCom=0;	// 컴퓨터 빙고 초기화
+
 			// user bingoCount
 			for(int i=0; i<randomNumUser.length/5; i++)
 			{
@@ -170,7 +215,7 @@ public class bingo {
 			}
 			diagonal1=0;
 			diagonal2=0;
-
+			
 			// computer bingoCount
 			for(int i=0; i<randomNumCom.length/5; i++)
 			{
@@ -179,17 +224,7 @@ public class bingo {
 					if(randomNumCom[i*5+j]==0)
 					{
 						rowCount++;
-						
-						if(i==0)
-							rowBingo1++;
-						else if(i==1)
-							rowBingo2++;
-						else if(i==2)
-							rowBingo3++;
-						else if(i==3)
-							rowBingo4++;
-						else if(i==4)
-							rowBingo5++;						
+						rowBingo[i]++;					
 					}
 				}
 				if(rowCount==5)
@@ -200,17 +235,7 @@ public class bingo {
 					if(randomNumCom[i+j*5]==0)
 					{
 						verCount++;
-						
-						if(i==0)
-							verBingo1++;
-						else if(i==1)
-							verBingo2++;
-						else if(i==2)
-							verBingo3++;
-						else if(i==3)
-							verBingo4++;
-						else if(i==4)
-							verBingo5++;												
+						verBingo[j]++;											
 					}
 				}
 				if(verCount==5)
@@ -219,7 +244,7 @@ public class bingo {
 				if(randomNumCom[i*6]==0)		// 대각선 빙고 확인(좌->우, 0->24)
 				{
 					diagonal1++;
-					diaBingo1++;
+					diaBingo[0]++;
 				}
 				
 				if(diagonal1==5)
@@ -228,7 +253,7 @@ public class bingo {
 				if(randomNumCom[(i+1)*4]==0) 	// 대각선 빙고 확인(우->좌, 4->20)
 				{
 					diagonal2++;
-					diaBingo2=0;
+					diaBingo[1]++;
 				}
 				
 				if(diagonal2==5)
@@ -239,26 +264,10 @@ public class bingo {
 			}
 			diagonal1=0;	// 대각선 빙고 초기화
 			diagonal2=0;
-			bingoCountUser=0;	// 유저 빙고 초기화
-			bingoCountCom=0;	// 컴퓨터 빙고 초기화
-			
-/*			rowBingo1=0;	// 가로 빙고 카운트 초기화
-			rowBingo2=0;
-			rowBingo3=0;
-			rowBingo4=0;
-			rowBingo5=0;
-			
-			verBingo1=0;	// 세로 빙고 카운트 초기화
-			verBingo2=0;
-			verBingo3=0;
-			verBingo4=0;
-			verBingo5=0;
-
-			diaBingo1=0;	// 대각선 빙고 카운트 초기화
-			diaBingo2=0;		
-*/			
+				
+			System.out.println("\n");	
 			System.out.println("--     user bingo : "+ bingoCountUser +"\n-- computer bingo : "+bingoCountCom);
-			System.out.println("\n");				
+
 		}
 		
 	}
