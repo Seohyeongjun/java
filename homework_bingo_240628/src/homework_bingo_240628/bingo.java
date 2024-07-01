@@ -27,7 +27,15 @@ public class bingo {
 		int [] diaBingo = new int[2];	// 대각선 빙고 카운트
 		
 		int nextBingoNum=0; 
-			
+		int start=0;
+		
+		int []rtemp=new int[randomNumCom.length/5];
+		
+		int rowTemp=rowBingo[0];
+		int []vtemp=new int[randomNumCom.length/5];
+		
+		int verTemp=verBingo[0];
+		int [] nextBingo = new int [randomNumCom.length/5*2];
 		/*  get user bingo number		*/
 		for(int i=0; i<randomNumUser.length; i++)
 		{
@@ -144,18 +152,36 @@ public class bingo {
 //			comNum=input.nextInt();			// 컴퓨터 빙고 숫자 입력
 			comNum=(int)(Math.random()*randomNum)+1;
 			
-			for(int i=0; i<randomNumCom.length; i++)
+			if(start==1)
 			{
-				if(comNum==randomNumCom[i])
-					break;
-				
-				if(i==(randomNumCom.length)-1)
+				for(int i=0; i<nextBingo.length; i++)			
 				{
-					comNum=(int)(Math.random()*randomNum)+1;
-					i=0;
+					if(comNum==nextBingo[i])
+						break;
+					
+					if(i==(nextBingo.length)-1)
+					{
+						comNum=(int)(Math.random()*randomNum)+1;
+						i=0;
+					}
+				}	
+			}
+			
+			else
+			{
+				for(int i=0; i<randomNumCom.length; i++)
+				{
+					if(comNum==randomNumCom[i])
+						break;
+					
+					if(i==(randomNumCom.length)-1)
+					{
+						comNum=(int)(Math.random()*randomNum)+1;
+						i=0;
+					}
 				}
 			}
-///////////////////////////////////////////////////////////////////////////////////////////			
+	///////////////////////////////////////////////////////////////////////////////////////////			
 			System.out.println(comNum);
 			
 			for(int i=0; i<randomNumCom.length; i++)
@@ -252,13 +278,93 @@ public class bingo {
 				
 				 rowCount=0;
 				 verCount=0;
+				 start=1;
 			}
 			diagonal1=0;	// 대각선 빙고 초기화
 			diagonal2=0;
 				
 			System.out.println("\n");	
 			System.out.println("--     user bingo : "+ bingoCountUser +"\n-- computer bingo : "+bingoCountCom);
+			
+			if(rowBingo[0]<5)
+			{	
+				rowTemp=rowBingo[0];
+				
+				for(int i=0; i<randomNumCom.length/5; i++)
+					rtemp[i]=randomNumCom[i];
+			}
+			else if(rowBingo[1]<5)
+			{
+				rowTemp=rowBingo[1];
+				
+				for(int i=0; i<randomNumCom.length/5; i++)
+					rtemp[i]=randomNumCom[i+5];
+			}
+			else if(rowBingo[2]<5)
+			{
+				rowTemp=rowBingo[2];
+				
+				for(int i=0; i<randomNumCom.length/5; i++)
+					rtemp[i]=randomNumCom[i+10];
+			}
+			
+			for(int i=1; i<randomNumCom.length/5; i++)
+			{
+				if(rowTemp<rowBingo[i] && rowBingo[i]<5)
+				{	
+					rowTemp=rowBingo[i];
+					
+					for(int j=0; j<randomNumCom.length/5; j++)
+						rtemp[j]=randomNumCom[i*5+j];				
+				}
+			}
+			
+			if(verBingo[0]<5)
+			{
+				verTemp=verBingo[0];
+				
+				for(int i=0; i<randomNumCom.length/5; i++)
+					vtemp[i]=randomNumCom[i*5];
+			}
+			else if(verBingo[1]<5)
+			{
+				verTemp=verBingo[1];
+				
+				for(int i=0; i<randomNumCom.length/5; i++)
+					vtemp[i]=randomNumCom[i*5+1];
+			}
+			else if(verBingo[2]<5)
+			{
+				verTemp=verBingo[2];
+				
+				for(int i=0; i<randomNumCom.length/5; i++)
+					vtemp[i]=randomNumCom[i*5+2];
+			}
 
+			for(int i=1; i<randomNumCom.length/5; i++)
+			{
+				if(verTemp<verBingo[i] && verBingo[i]<5 )
+				{	
+					verTemp=verBingo[i];
+					
+					for(int j=0; j<randomNumCom.length/5; j++)
+						vtemp[j]=randomNumCom[i+j*5];				
+				}
+			}
+						
+			for(int i=0; i<2; i++)
+			{
+				for(int j=0; j<randomNumCom.length/5; j++)
+				{
+					if(i==0)
+						nextBingo[i*5+j]=rtemp[j];
+					else
+						nextBingo[i*5+j]=vtemp[j];
+				}
+			}
+			for(int i=0; i<nextBingo.length; i++)
+				System.out.print(nextBingo[i]+" ");
+			System.out.print("\n");
 		}
 		
 	}
