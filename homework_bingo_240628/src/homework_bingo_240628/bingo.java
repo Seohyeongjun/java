@@ -22,27 +22,12 @@ public class bingo {
 		int diagonal1=0;	// 대각선 빙고
 		int diagonal2=0;	// 대각선 빙고
 		
-		int [] rowBingo = new int[5];	// 가로 빙고 카운트		
-		int [] verBingo = new int[5];	// 세로 빙고 카운트
+		int [] rowBingo = new int[randomNumUser.length/5];	// 가로 빙고 카운트		
+		int [] verBingo = new int[randomNumUser.length/5];	// 세로 빙고 카운트
 		int [] diaBingo = new int[2];	// 대각선 빙고 카운트
 		
 		int nextBingoNum=0; 
-		
-		int row_1=0;
-		int row_2=1;
-		int row_3=2;
-		int row_4=3;
-		int row_5=4;
-		
-		int ver_1=0;
-		int ver_2=1;
-		int ver_3=2;
-		int ver_4=3;
-		int ver_5=4;
-		
-		int dia_1=0;
-		int dia_2=1;
-		
+			
 		/*  get user bingo number		*/
 		for(int i=0; i<randomNumUser.length; i++)
 		{
@@ -77,30 +62,38 @@ public class bingo {
 
 		while(true) 
 		{
-//			bingoCountUser=0;	// 유저 빙고 초기화
-//			bingoCountCom=0;	// 컴퓨터 빙고 초기화
-
-			System.out.println("  >> user                     computer <<");
+			System.out.println(" >> user                                          computer <<");
+			System.out.print("┌────┬────┬────┬────┬────┐          ┌────┬────┬────┬────┬────┐\n");
 			for(int i=0; i<randomNumUser.length/5; i++)
 			{
+				
 				for(int j=0; j<randomNumUser.length/5; j++)		// print user biongo number
 				{
-					if(randomNumUser[j+(i*5)]<10)
-					 System.out.print("  "+randomNumUser[j+(i*5)]);
+					if(randomNumUser[j+(i*5)]==0)
+						 System.out.printf("│ %2c ",'■');
 					else
-					 System.out.print(" "+randomNumUser[j+(i*5)]);
+						System.out.printf("│ %2d ",randomNumUser[j+(i*5)]);
 				}
-				System.out.print("           ");
+				System.out.print("│          ");
+
 				for(int j=0; j<randomNumCom.length/5; j++)		// print computer biongo number
 				{
-					if(randomNumCom[j+(i*5)]<10)
-						 System.out.print("  "+randomNumCom[j+(i*5)]);
-						else
-						 System.out.print(" "+randomNumCom[j+(i*5)]);
+					if(randomNumCom[j+(i*5)]==0)
+						System.out.printf("│ %2c ",'■');
+					else 
+						System.out.printf("│ %2d ",randomNumCom[j+(i*5)]);
 				}
-	
+				System.out.print("│");
 				System.out.print("\n");
-			}
+				if(i<randomNumUser.length/5-1)
+				{
+					System.out.print("├────┼────┼────┼────┼────┤          ├────┼────┼────┼────┼────┤");
+					System.out.print("\n");
+				}
+				else if(i==randomNumUser.length/5-1)
+					System.out.print("└────┴────┴────┴────┴────┘          └────┴────┴────┴────┴────┘\n");
+				
+			}			
 			
 			if(bingoCountUser>=5 || bingoCountCom>=5)
 			{
@@ -145,8 +138,6 @@ public class bingo {
 					}
 				}
 			}
-			
-
 
 			/* select computer bingo number */
 			System.out.print("com 숫자 입력 : ");
