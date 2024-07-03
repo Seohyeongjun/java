@@ -12,7 +12,7 @@ public class Stringmethod {
 		// 문자열 관련 메서드는 필히 꼭 익혀야 한다.
 		
 		// 문자열 데이터를 저장하는 방법
-//		String word = "i like banana";
+		String word = "i like banana";
 //		System.out.printf("%s\n",word);
 //		
 //		// 문자열 비교 -  같은문자열인가?
@@ -67,10 +67,10 @@ public class Stringmethod {
 //		// 위 메서드 중 가장 많이 사용되는 것들
 //		// equals, contains
 //		
-//		// 문자열 분할
+		// 문자열 분할
 //		System.out.println(Arrays.toString(word.split(" ")));
 //		String name="이순신@김유신@강감찬@";
-//		
+		
 //		String[] names=name.split("@");		// @기준으로 문자열을 나눈다.
 //		System.out.println(names[1]);
 //		
