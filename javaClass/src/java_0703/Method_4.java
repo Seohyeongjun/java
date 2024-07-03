@@ -25,19 +25,7 @@ public class Method_4 {
 		int avg=returnMth.avg(total);
 		System.out.println("총점 : "+total+"\n평균 : "+avg);
 
-		/*
-		 주사위 게임
-		 
-		 j형준과 s석완이가 주사위 게임을 한다.
-		 주사위는 하나, 육면이다.
-		 주사위의 값이 큰 사람이 이긴다.(랜덤)
-		 
-		 주사위 값 구하는 메서드
-		 
-		 주사위 값 비교하여 누가 이겼는지 출력하는 메서드	 
-		 
-		 */
-		
+
 
 	}
 }
