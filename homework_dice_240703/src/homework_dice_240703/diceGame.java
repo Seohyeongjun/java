@@ -4,15 +4,6 @@ import java.util.Scanner;
 
 public class diceGame {
 
-//	public static void main(String[] args) {
-		
-//		Init init=new Init();
-//		
-//		init.getDice();
-//		init.runDice();
-//		init.outDice();		
-
-
 	public static void main(String[] args) {
 		
 //		 주사위 게임
@@ -24,7 +15,13 @@ public class diceGame {
 //		 주사위 값 구하는 메서드
 //		 
 //		 주사위 값 비교하여 누가 이겼는지 출력하는 메서드	 		 
+		
+//		Init init=new Init();
 //		
+//		init.getDice();
+//		init.runDice();
+//		init.outDice();		
+
 		Dice dice = new Dice();
 		
 		String name1="j형준";
@@ -60,7 +57,6 @@ class Dice
 			System.out.printf("%s : %d\n%s : %d \n비김",name1, nameNum1, name2, nameNum2);
 	}
 }
-
 
 class Init
 {
