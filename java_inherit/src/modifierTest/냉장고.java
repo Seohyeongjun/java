@@ -1,10 +1,11 @@
 package modifierTest;
 //
-public class ³ÃÀå°í extends House {
-
-	@Override
-	protected void power()
-	{
-		System.out.println("³ÃÀå°í");
-	}
-}
+//public class ³ÃÀå°í extends House {
+//
+//	@Override
+//	protected void power()
+//	{
+//		System.out.println("³ÃÀå°í");
+//	}
+//	
+//}
