@@ -1,6 +1,8 @@
 package java_0711;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
 public class ArrayListStudy1 {
 
 	public static void main(String[] args) {
@@ -59,6 +61,26 @@ public class ArrayListStudy1 {
 		}
 		
 		System.out.println(list);
+		System.out.println();
+		
+		Member t = new Member("장보고", 0, "0");
+		
+		System.out.println(list.indexOf(t));	// equals로 비교 후 리턴(사용자가 Override한 equals 메서드)
+		System.out.println(list.contains(t));	// equals로 비교 후 리턴
+		
+		list.forEach(m -> System.out.println(m));
+		System.out.println();
+			
+		Member[] mem = list.toArray(new Member[list.size()]);
+		
+		for(Member mm : mem)
+			System.out.println(mm);
+		
+		// 정렬
+//		Collections.sort(list);
+		System.out.println("정렬 후");
+		list.forEach(m -> System.out.println(m));
+		
 		
 		
 		

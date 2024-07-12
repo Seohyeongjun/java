@@ -9,16 +9,19 @@ public class CollectionStudy1 {
 	public static void main(String[] args) {
 		
 		int [] a = new int[5];
-		
-		// 클래스형 - 기본형
-		// Byte - byte
-		// Short - short
-		// Integer - int
-		// Long - long
-		// Float - float
-		// Double - double
-		// Character - char
-		// Boolean - boolean
+		///////////////////////////////////
+		//
+		// 클래스형 		- 기본형
+		//		
+		// Byte 	 ---- byte
+		// Short 	 ---- short
+		// Integer 	 ---- int
+		// Long 	 ---- long
+		// Float 	 ---- float
+		// Double 	 ---- double
+		// Character ---- char
+		// Boolean 	 ---- boolean
+		/////////////////////////////////////
 		
 		// < > 타입지정(클래스형)
 		ArrayList<Integer> list1 = new ArrayList<Integer>();
