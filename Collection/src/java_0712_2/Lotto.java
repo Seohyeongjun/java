@@ -9,12 +9,12 @@ public class Lotto {
 		this.num=num;
 	}
 	
-	@Override
-	public String toString()
-	{
-		return num[0]+", "+num[1]+", "+num[2]+", "
-				+num[3]+", "+num[4]+", "+num[5];
-	}
+//	@Override
+//	public String toString()
+//	{
+//		return num[0]+", "+num[1]+", "+num[2]+", "
+//				+num[3]+", "+num[4]+", "+num[5];
+//	}
 	
 	public int[] getNum() {
 		return num;
