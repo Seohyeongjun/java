@@ -61,11 +61,11 @@ public class TreeSetStudy {
 		System.out.print("\n나의 점수 입력 : ");
 		int num = sc.nextInt();
 		
-		System.out.println(rank.lower(num+1));
+		System.out.println(rank.lower(num+1));	// +1 해줘야 함
 		if(num>=rank.last())
 			System.out.println("상위 10%");
 
-		else if(rank.lower(num+1)>=70)
+		else if(rank.lower(num+1)>=70)		// +1 해줘야 함
 			System.out.println("상위 30%");
 
 		else if(num+1 >= rank.first())
