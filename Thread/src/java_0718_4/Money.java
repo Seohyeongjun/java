@@ -8,6 +8,8 @@ public class Money {
 	{
 		return myMoney;
 	}
+	
+	//widhdraw메서드에서 임계영역으로 설정
 	public synchronized boolean widhdraw(int money)
 	{
 		if(myMoney >= money)
