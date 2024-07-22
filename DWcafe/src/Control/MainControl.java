@@ -35,6 +35,6 @@ public class MainControl {
 //		Kiosk kiosk =  new SelectDrink();
 //		
 //		kiosk.action();
-//		
+		
 	}
 }
