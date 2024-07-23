@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 1. 10명의 이름, 나이, 성별, 전화번호, 주소를 입력받아 순번대로 저장 후 순번 및 이름만 출력
 
 2. 순번 또는 이름을 입력하면 전체 정보 제공
@@ -144,3 +145,151 @@ class Print
 
 
 
+=======
+1. 10명의 이름, 나이, 성별, 전화번호, 주소를 입력받아 순번대로 저장 후 순번 및 이름만 출력
+
+2. 순번 또는 이름을 입력하면 전체 정보 제공
+
+// 3. 상속 및 인터페이스 사용
+
+class PersonData
+{
+	private String name;
+	private int age;
+	private String gen
+	private int phoneNum;
+	pirvate String add;
+
+	public PersonData()
+	{}
+	
+	public PersonData(String name, int age, String gen, int phoneNum, String add)
+	{
+		this.name=name;
+		this.age=age;
+		this.gen=gen;
+		this.phoneNum=phoneNum;
+		this.add=add;
+	}
+	@Override
+	public String toString()
+	{
+		return name+"("+age+", "+gen+")"+" "+phoneNum+" "+add;
+	}
+
+	public void setName(String name)
+	{
+		this.name=name;
+	}
+	public getName()
+	{
+		return name;
+	}
+
+	public void setAge(int age)
+	{
+		this.age=age;
+	}
+	public getAge()
+	{
+		return age
+	}
+	public void setGen(String gen
+	{
+		this.gen=gen;
+	}
+	public getGen()
+	{
+		return gen;
+	}
+	public void setPhoneNum(int phoneNum)
+	{
+		this.phoneNum=phoneNum;
+	}
+	public getPhoneNum()
+	{
+		return phoneNum;
+	}
+	public void setAdd(String add)
+	{
+		this.add=add;
+	}
+	public getAdd()
+	{
+		return add;
+	}
+}
+
+
+import java.util.Scanner;
+
+public static void main(String[] agrs)
+{
+//	private String name;
+//	private int age;
+//	private String gen;
+//	private phoneNum;
+//	private add;
+	private int selNum;
+	
+	PersonData[] data;	// = new PersonData();
+
+	Scanner input = new Scanner(System.in);
+	
+	for(int i=1; i<=10; i++)
+	{
+		data = new PersonData[]();
+
+		System.out.println(i+"번 입력================");
+		System.out.print(" 이름 입력 : );
+		data.name=input.nextLine();
+
+		System.out.print(" 나이 입력 : );
+		data.age=input.nextInt();
+
+		System.out.print(" 성별 입력 : );
+		data.gen=input.nextLine();
+
+		System.out.print(" 전화번호 입력 : );
+		data.phoneNumber=input.nextInt();
+
+		System.out.print(" 주소 입력 : );
+		data.add=input.nextLine();
+		
+		System.out.println();
+	}	
+
+	Print print = new Print();
+	for(int i=0; i<data.length; i++)
+	{
+		print.Output(data);
+		System.out.print((i+1) : );
+	//	System.out.prirntln((i+1)+")"+data[i]);
+	}
+
+	System.out.print("1~10번 선택");
+	selNum=input.nextInt();	// 1~10번 선택
+
+	System.out.println(data[selNum]);
+}
+
+class Print
+{
+	public void Output(PersonData data)
+	{
+		System.out.println(data);
+	
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+>>>>>>> branch 'main' of https://github.com/Seohyeongjun/java_spring.git

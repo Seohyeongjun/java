@@ -14,14 +14,14 @@ public class Method6 {
 		// Game 클래스에 필요한 변수나 메서드 작성
 		// main메서드에서는 Game 클래스 객체로 메서드들만 실행
 		boolean userOk = true;
-		
-		Game game = new Game();
+
+		Game game = new Game(5, 10);
 		
 		game.comInput();
 		userOk = game.userInput();
 		if(userOk)
 			game.result();
-		
+//		game.Game(5,10);
 	}
 
 }
@@ -30,7 +30,24 @@ class Game
 	String com;
 	String user;
 	Scanner input=new Scanner(System.in);
-	
+
+
+	Game(int a)
+	{
+		this(a, 0);
+	}
+	Game(int a, int b)
+	{
+		System.out.println(a+" "+b);
+	}
+	void comInput(int num)
+	{
+		
+	}
+	void comInput(int num, char a)
+	{
+		
+	}
 	void comInput()
 	{
 		int temp = (int)(Math.random()*3);
