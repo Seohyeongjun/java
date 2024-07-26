@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"  import="study.* , java.sql.*" %>
 
+<%-- inquirySave.jsp --%>
+
+
 <%
 	request.setCharacterEncoding("UTF-8");
 	String writer = ((Member)session.getAttribute("user")).getUserId();
@@ -8,6 +11,9 @@
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
 	String pw = request.getParameter("password");
+	
+	//작성한 문의글 관리자에게 메일 전송
+	SendEmail.sendEmail(email, title, content);
 	
 	DBconnect db = new DBconnect();
 	
