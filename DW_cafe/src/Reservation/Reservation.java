@@ -7,7 +7,7 @@ import Check.Drink;
 
 public class Reservation {	
 	
-	public static void customer(){
+	public static Member customer(){
 		
 		Scanner input = new Scanner(System.in);
 
@@ -31,21 +31,8 @@ public class Reservation {
 
 		Member member = new Member(date, time, name, phoneNum, tableNum);
 		customerList.add(member);
-		
-		Pay pay = new Pay(member);
-
-	}
-	
-}
-
-class Pay
-{
-	Member member;
-	public Pay(Member member)
-	{
-		this.member=member;
 //		System.out.println(member);
-	}
-	
-
+		
+		return member;
+	}	
 }

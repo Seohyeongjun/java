@@ -1,18 +1,28 @@
 package Check;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+
+import Reservation.Member;
+import Reservation.Reservation;
 
 //import Reservation.Pay;
 
 class DrinkList
 {
-	private String name;
-	private String price;
+	public List<DrinkList> drinkList = new ArrayList<>();	
 	
-	public DrinkList(String name, String price)
+	private String num;
+	private String name;
+	private int price;
+	
+	public DrinkList()	{}
+	
+	public DrinkList(String num, String name, int price)
 	{
+		this.num=num;
 		this.name=name;
 		this.price=price;
 	}
@@ -20,95 +30,109 @@ class DrinkList
 	@Override
 	public String toString()
 	{
-		return name+" "+price;
+		return num+". "+name+" \t---------- "+price+"원";
+	}		
+	public void setNum(String num)
+	{
+		this.num=num;
 	}
-		
+	
+	public String getNum()
+	{
+		return num;
+	}
+	
+	public void setName(String name)
+	{
+		this.name=name;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	
+	public void setPrice(int price)
+	{
+		this.price=price;
+	}
+	public int getPrice()
+	{
+		return price;
+	}
+	
+	public String toNamePrice()
+	{
+		return name+" -- "+price+"원";
+	}
 }
 
-class OrderList
-{
-	static String[] list;
-	static List<DrinkList> drinkList;
-	static String order;
 
-	public static void List(List<DrinkList> list)
-	{
-		drinkList=list;
-	}
+public class Drink{
 	
-	public static void Order(String order)
-	{
-		order=order;
-	}
+	private int addOrder=1;
 	
-//	for(DrinkList li : list)
-//	{
-////		order.contains(li);
-//	}
-//	
-
+	Coffee coffee = new Coffee();
+	Tea tea = new Tea();	
+	OrderList order = new OrderList();
+	Scanner input = new Scanner(System.in);
+//	Member member = null;
+	ArrayList<Member> customerList = new ArrayList<>();
+	
+	public Drink()
+	{	
+		int totalPrice=0;
+		coffee.coffeeList();
+		tea.teaList();
 		
-	
+		while(addOrder==1)
+		{
+			totalPrice= order.order();
+			addOrder = input.nextInt();
+		}
+		
+		Pay pay = new Pay(totalPrice);	
+	}	
 }
 
-public class Drink {
+
+
+class Coffee extends DrinkList{
 	
-	public static void order()
+	public void coffeeList()
 	{
-//		DrinkList drinkList = new DrinkList();
-		Scanner input = new Scanner(System.in);
-		String order;
-		System.out.print("\n음료 주문 :");
-		order = input.nextLine();
+		drinkList.add(new DrinkList("1", "롱 블랙", 5000));
+		drinkList.add(new DrinkList("2", "아메리카노", 2500));
+		drinkList.add(new DrinkList("3", "롱 마끼아또", 4000));
+		drinkList.add(new DrinkList("4", "비엔나커피", 3500));		
+		drinkList.add(new DrinkList("5", "카페 라떼", 3000));
+		drinkList.add(new DrinkList("6", "플랫 화이트", 3500));		
+		drinkList.add(new DrinkList("7", "카푸치노", 4000));
+		drinkList.add(new DrinkList("8", "카페 모카", 4500));		
+		drinkList.add(new DrinkList("9", "코르타도", 4500));
+		drinkList.add(new DrinkList("10", "아포가토", 4000));	
 		
-//		OrderList.List(order);
-	}
+		System.out.println("============  커피(coffee)  ============");
 	
-	public static void coffeeList()
+		OrderList.menuList("c", drinkList);	
+		
+	}
+}
+
+class Tea extends DrinkList{
+	
+	public void teaList()
 	{
-		List<DrinkList> coffee = new ArrayList<>();
-
-		coffee.add(new DrinkList("1. 롱 블랙 (long black) ----------", "5000원"));
-		coffee.add(new DrinkList("2. 아메리카노 (Americano) ---------", "2500원"));
-		coffee.add(new DrinkList("3. 롱 마끼아또 (Long Macchiato) ---", "4000원"));
-		coffee.add(new DrinkList("4. 비엔나커피 (Vienna coffee) -----", "3500원"));		
-		coffee.add(new DrinkList("5. 카페 라떼 (Latte) -------------", "3000원"));
-		coffee.add(new DrinkList("6. 플랫 화이트 (Flat White) -------", "3500원"));		
-		coffee.add(new DrinkList("7. 카푸치노 (Cappuccino) ---------", "4000원"));
-		coffee.add(new DrinkList("8. 카페 모카 (Cafe Mocha) --------", "4500원"));		
-		coffee.add(new DrinkList("9. 코르타도 (Cortado) ------------", "4500원"));
-		coffee.add(new DrinkList("10. 아포가토 (Affogato) ----------", "4000원"));	
+		drinkList.add(new DrinkList("11", "녹 차", 2000));
+		drinkList.add(new DrinkList("12", "홍 차", 3500));
+		drinkList.add(new DrinkList("13", "백 차", 3000));
+		drinkList.add(new DrinkList("14", "우롱차", 3500));		
+		drinkList.add(new DrinkList("15", "자스민차", 2500));
+		drinkList.add(new DrinkList("16", "허브차", 3500));		
+		drinkList.add(new DrinkList("17", "차이나", 4000));
+		drinkList.add(new DrinkList("18", "푸에르", 4500));
 		
-		System.out.println("================  커피(coffee)  ================");
-		for(DrinkList co:coffee)
-		{
-			System.out.println(co);
-		}
+		System.out.println("\n==============  티(tea)  ==============");
 		
-		OrderList.List(coffee);
+		OrderList.menuList("t", drinkList);
 	}
-	
-	public static void teaList()
-	{
-		List<DrinkList> tea = new ArrayList<>();
-
-		tea.add(new DrinkList("11. 녹차 (Green Tea) -------------", "2000원"));
-		tea.add(new DrinkList("12. 홍차 (Black Tea) -------------", "3500원"));
-		tea.add(new DrinkList("13. 백차 (White Tea) -------------", "3000원"));
-		tea.add(new DrinkList("14. 우롱차 (Oolong Tea) ----------", "3500원"));		
-		tea.add(new DrinkList("15. 자스민차 (jasmin Tea) ---------", "2500원"));
-		tea.add(new DrinkList("16. 허브차 (Herbal Tea)  ---------", "3500원"));		
-		tea.add(new DrinkList("17. 차이나 (Chai Tea) ------------", "4000원"));
-		tea.add(new DrinkList("18. 푸에르 (Pu-erh Tea) ----------", "4500원"));
-		
-		System.out.println("\n==================  티(tea)  ==================");
-		for(DrinkList t:tea)
-		{
-			System.out.println(t);
-		}
-		
-
-	}
-
-	
 }
