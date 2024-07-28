@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class OrderList {
 	
-//		private String[] list;
 		static List<DrinkList> drinkListCoffee;
 		static List<DrinkList> drinkListTea;
 		public static List<OrderList> drinkOrderList = new ArrayList<>();	

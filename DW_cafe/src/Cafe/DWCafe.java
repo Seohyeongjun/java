@@ -36,9 +36,7 @@ public class DWCafe {
 			System.out.println("음료 만드는 중...");
 		}
 		Robot deliver = new Robot();
-		deliver.deliver();
-		
-		
+		deliver.deliver();		
 		
 	}
 

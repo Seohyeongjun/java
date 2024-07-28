@@ -37,7 +37,6 @@ public class Pay {
 		{
 			System.out.println("\n카드결제 결제 합니다.");
 			System.out.printf("결제 %d원 했습니다.", totalPrice);
-
 		}
 	}
 }

@@ -113,8 +113,7 @@ class Coffee extends DrinkList{
 		
 		System.out.println("============  Ä¿ÇÇ(coffee)  ============");
 	
-		OrderList.menuList("c", drinkList);	
-		
+		OrderList.menuList("c", drinkList);			
 	}
 }
 

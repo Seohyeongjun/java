@@ -48,3 +48,4 @@ public class Member {
 				+"예약일 : "+date+"\t 시간 : "+time+"(시, 분)\n("+tableNum+"번 테이블) \t고객명 : "+name+"("+phoneNum+")";
 	}
 }
+
