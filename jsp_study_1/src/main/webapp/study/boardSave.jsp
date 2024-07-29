@@ -43,11 +43,6 @@
 		e.printStackTrace();
 	}
 	
-	
-	
-	
-	
-
 //	String title = request.getParameter("title");
 //	String content = request.getParameter("content");
 	
