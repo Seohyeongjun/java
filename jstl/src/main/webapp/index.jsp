@@ -2,8 +2,17 @@
     pageEncoding="UTF-8" import="java.util.ArrayList"%>
     
     	<!--  core tag의 이름을 c(변수)로 한다 -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 
+<a href="/main.jsp">로그인 및 회원가입</a> <br>
+<a href="/board.jsp">게시판</a><br>
+<a href="/inquiry">문의</a><br>
+
+<%--
+	<jsp:forward page="">
+	
+
+ --%>
 <%-- core태그 변수 --%>
 <c:set var="num" value="10"/> <!-- 변수명 : num, 값 : 10 -->
 
@@ -23,7 +32,7 @@ ${sessionScope.num }	<%-- session 변수(num, 30.68) 출력 --%>
 	<c:when test="${num>5} ">
 		<h1>5보다 크다</h1>
 	</c:when>
-	<c:when test="${100>10 ">
+	<c:when test="${100>10} ">
 		10보다 크다
 	</c:when>	
 	

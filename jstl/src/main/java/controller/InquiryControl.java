@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class testServlet1
+ * Servlet implementation class InquiryControl
  */
-@WebServlet("/test1")
-public class testServlet1 extends HttpServlet {
+@WebServlet("/inquiry")
+public class InquiryControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public testServlet1() {
+    public InquiryControl() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,11 +29,9 @@ public class testServlet1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// response.getWriter().append("MY servlet doGet method").append(request.getContextPath());
-		// response.sendRedirect("index.jsp"); // 사용자요청 주소를 변경하여 페이지 처리 (1)
-		
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");	// 사용자요청 주소를 변경하여 페이지 처리 (2), RequestDispatcher : 중계자, request를 받아 response를 반환
-		rd.forward(request, response);
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		RequestDispatcher rd = request.getRequestDispatcher("inquiry.jsp");
+		rd.forward(request, response);	
 	}
 
 	/**
@@ -41,7 +39,16 @@ public class testServlet1 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		// doGet(request, response);
+		
+		String title = request.getParameter("title");
+		String writer = request.getParameter("writer");
+		
+		request.setAttribute("title", title);
+		request.setAttribute("writer", writer);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("inquiry.jsp");
+		rd.forward(request, response);
 	}
 
 }

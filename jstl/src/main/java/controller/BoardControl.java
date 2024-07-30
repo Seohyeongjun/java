@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class testServlet1
+ * Servlet implementation class BoardControl
  */
-@WebServlet("/test1")
-public class testServlet1 extends HttpServlet {
+@WebServlet("/board")
+public class BoardControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public testServlet1() {
+    public BoardControl() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,11 +29,8 @@ public class testServlet1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// response.getWriter().append("MY servlet doGet method").append(request.getContextPath());
-		// response.sendRedirect("index.jsp"); // 사용자요청 주소를 변경하여 페이지 처리 (1)
-		
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");	// 사용자요청 주소를 변경하여 페이지 처리 (2), RequestDispatcher : 중계자, request를 받아 response를 반환
-		rd.forward(request, response);
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.sendRedirect("/boardView.jsp");	// 주소변경하고 내용 변경. 주소 boardView.jsp가 나옴
 	}
 
 	/**
@@ -41,7 +38,15 @@ public class testServlet1 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		// doGet(request, response);
+		
+		String main=request.getParameter("main");
+		String textW=request.getParameter("textW");
+		
+		request.setAttribute("main", main);
+		request.setAttribute("textW", textW);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("boardWrite.jsp");
+		rd.forward(request, response);	// 주소변경 없이 내용 변경. 주소 boardWrite.jsp가 안나옴
 	}
-
 }
