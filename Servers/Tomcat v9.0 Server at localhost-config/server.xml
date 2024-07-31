@@ -160,7 +160,11 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
+<<<<<<< HEAD
       <Context docBase="jstl" path="/" reloadable="true" source="org.eclipse.jst.jee.server:jstl"/><Context docBase="test" path="/test" reloadable="true" source="org.eclipse.jst.jee.server:test"/><Context docBase="jsp_study_1" path="/jsp_study_1" reloadable="true" source="org.eclipse.jst.jee.server:jsp_study_1"/></Host>
+=======
+      <Context docBase="jstl" path="/" reloadable="true" source="org.eclipse.jst.jee.server:jstl"/></Host>
+>>>>>>> branch 'main' of https://github.com/Seohyeongjun/java_spring.git
     </Engine>
   </Service>
 </Server>
