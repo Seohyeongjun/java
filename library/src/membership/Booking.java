@@ -7,14 +7,28 @@ import manager.MemberActive;
 public class Booking {
 
 	public Booking() {
+		Scanner input = new Scanner(System.in);
+		Member member = new Member();
+		boolean memberCk=false;
+		
 		System.out.println("\n----------------");
 		System.out.println("도서 대여 및 반납");
 		
-		System.out.print("\n회원정보 입력 : ");
-		Scanner input = new Scanner(System.in);
-		int memberNum = input.nextInt();
+		System.out.print("회원이 아니면 1번을 누르세요 : ");
+		int num = input.nextInt();
+		if(num==1)
+			member.addMember();
 		
-		Member member = new Member(memberNum);
+		while(!memberCk) {
+			System.out.print("\n회원번호 입력 : ");
+			int memberNum = input.nextInt();
+	
+			input.nextLine();
+			System.out.print("회원이름 입력 : ");
+			String memberName = input.nextLine();
+			
+			memberCk=member.checkMember(memberNum, memberName);
+		}
 		
 		System.out.println("\n1. 대여  2. 반납 ");
 
@@ -23,19 +37,24 @@ public class Booking {
 		while(true) {
 			
 			System.out.print("번호를 선택하세요: ");
-			int num = input.nextInt();
+			num = input.nextInt();
 			
 			if(num==1) {		// 대여
 				memberActive.bookLoan();
 				break;
 			}
 			else if(num==2) {	// 반납
-				memberActive.bookLoan();
+				memberActive.bookReturn();
 				break;
 			}
 			else {
-				System.out.println("1번 또는 2번을 누르세요");
+				System.out.println("\n1번 또는 2번을 누르세요");
 			}
 		}
+	}
+
+	private void member(int memberNum, String memberName) {
+		// TODO Auto-generated method stub
+		
 	}
 }

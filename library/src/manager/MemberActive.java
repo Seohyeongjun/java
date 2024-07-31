@@ -1,5 +1,7 @@
 package manager;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import membership.Book;
@@ -7,7 +9,8 @@ import membership.Book;
 public class MemberActive implements ManagerActive{
 
 	public MemberActive() {}
-	
+	Book book = new Book();	
+	List<Book> bookList = new ArrayList<>();
 	
 	@Override
 	public void bookLoan() {	// 대여모드
@@ -17,7 +20,7 @@ public class MemberActive implements ManagerActive{
 			Scanner input = new Scanner(System.in);
 			String bookCode = input.nextLine();
 			
-			Book book = new Book(bookCode);		
+			book.BookCode(bookCode);		
 			
 			System.out.print("\n추가 대여 하시겠습니까. \n1 : 추가대여  2 : 대여종료 : ");
 			int num = input.nextInt();
@@ -32,6 +35,11 @@ public class MemberActive implements ManagerActive{
 		}
 	}
 	
+	private void book(String bookCode) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	@Override
 	public void bookReturn() {	// 반납모드
 		System.out.println("\n반납모드");
@@ -46,8 +54,13 @@ public class MemberActive implements ManagerActive{
 			
 			if(bookRet==1) {	// 전부 반납
 				System.out.println("전부 반납입니다.");
-				System.out.println("대여한 책의 코드번호를 확인하세요");
+				System.out.println("대여한 책의 코드번호를 확인하세요\n");
 				
+				for(Book list:bookList) {
+					System.out.println(list);
+				}
+				
+				System.out.println();
 				System.out.println("전부 맞으면 1번 누르세요");
 				int num = input.nextInt();
 				

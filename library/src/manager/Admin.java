@@ -2,7 +2,10 @@ package manager;
 
 import java.util.Scanner;
 
+import membership.Book;
+
 public class Admin {
+	Book book = new Book();
 
 	public Admin() {
 		System.out.println("\n관리자 모드");
@@ -40,17 +43,20 @@ public class Admin {
 			}
 			else {
 				System.out.println("1~4번을 누르세요");
-			}
-			
-		}
-		
+			}			
+		}		
 	}
 	
 	void register() {	// 도서등록
 		System.out.println("\n도서 등록");
-		System.out.println("코드번호 입력 : ");
+		System.out.print("코드번호 입력 : ");
 		Scanner input = new Scanner(System.in);
 		String codeNum = input.nextLine();
+		
+		System.out.print("도서명 입력 : ");
+		String bookName = input.nextLine();
+		
+		book.addBook(codeNum, bookName);
 	}
 
 	void modify() {		// 도서 수정
@@ -58,12 +64,18 @@ public class Admin {
 		System.out.println("코드번호 입력 : ");
 		Scanner input = new Scanner(System.in);
 		String codeNum = input.nextLine();
+		
+		System.out.println("\n도서명 수정 : ");
+		String reName = input.nextLine();
+		book.modifyBook(codeNum, reName);
 	}
 	void remove() {		// 도서 삭제
 		System.out.println("\n도서 삭제");
 		System.out.println("코드번호 입력 : ");
 		Scanner input = new Scanner(System.in);
 		String codeNum = input.nextLine();
+		
+		book.remove(codeNum);
 	}
 	void end() {		// 종료
 		System.out.println("\n종료");
