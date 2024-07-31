@@ -3,6 +3,7 @@
 <%-- boardWrite.jsp--%>
 
 <%-- 스타일 적용하려면 boardWrite.css 만들어 작성 --%>
+
 <form method="post" action="boardSave.jsp" enctype="multipart/form-data">
 	<div id="writeBox">
 		<div class="writeInput">
