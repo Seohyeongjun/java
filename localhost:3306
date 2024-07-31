@@ -1,0 +1,4 @@
+
+    String user="seo";
+		String password="1234";
+		String url="jdbc:mysql://localhost:3306/seo";
