@@ -10,22 +10,25 @@ public class Booking {
 		Scanner input = new Scanner(System.in);
 		Member member = new Member();
 		boolean memberCk=false;
+		int memberNum=0;
+		String memberName = null;
 		
 		System.out.println("\n----------------");
 		System.out.println("도서 대여 및 반납");
 		
-		System.out.print("회원이 아니면 1번을 누르세요 : ");
+		System.out.print("비회원은 1번을 누르세요");
+		System.out.print("회원은 2번을 누르세요");
 		int num = input.nextInt();
 		if(num==1)
 			member.addMember();
 		
 		while(!memberCk) {
 			System.out.print("\n회원번호 입력 : ");
-			int memberNum = input.nextInt();
+			memberNum = input.nextInt();
 	
 			input.nextLine();
 			System.out.print("회원이름 입력 : ");
-			String memberName = input.nextLine();
+			memberName = input.nextLine();
 			
 			memberCk=member.checkMember(memberNum, memberName);
 		}
@@ -40,7 +43,7 @@ public class Booking {
 			num = input.nextInt();
 			
 			if(num==1) {		// 대여
-				memberActive.bookLoan();
+				memberActive.bookLoan(memberNum, memberName);
 				break;
 			}
 			else if(num==2) {	// 반납

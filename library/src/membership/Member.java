@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 public class Member {
 
-	private static int memberNum;
+	private int memberNum;
 	private String memberName;
 	
-	private static int addMemberNum=2407;
-	private static String addMemberName;
+	public static int addMemberNum=2407;
+	public String addMemberName;
 	
 	public static List<Member> memberList = new ArrayList<>();
 	
@@ -28,22 +28,16 @@ public class Member {
 		
 		this.memberNum=memberNum;
 		this.memberName=memberName;
-		
-//		memberList.add(new Member(memberNum, memberName));
-		
-//		checkMember(memberNum, memberName);
 	
 	}
 	
-	public boolean checkMember(int Num, String Name) {
+	public boolean checkMember(int memberNum, String Name) {
 		
 		for(Member member:memberList) {
 			int mNum=member.getMemberNum();
 			String mName=member.getMemberName();
-			
-//			System.out.println(memberNum);
-			
-			if(mNum==Num){				
+
+			if(mNum==memberNum){				
 				if(mName.equals(Name))
 				{	
 					System.out.println("회원가입 확인 완료");
@@ -60,6 +54,7 @@ public class Member {
 	}
 		
 	void addMember() {
+		
 		System.out.println("\n회원이 아닙니다.");
 		System.out.print("회원가입 하시겠습니까? \n 1. 가입  2. 종료 : ");
 		

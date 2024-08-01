@@ -13,14 +13,14 @@ public class MemberActive implements ManagerActive{
 	List<Book> bookList = new ArrayList<>();
 	
 	@Override
-	public void bookLoan() {	// 대여모드
+	public void bookLoan(int memberNum, String memberName) {	// 대여모드
 		System.out.println("\n대여모드");
 		while(true) {
 			System.out.print("책 코드 입력 : ");
 			Scanner input = new Scanner(System.in);
 			String bookCode = input.nextLine();
 			
-			book.BookCode(bookCode);		
+			book.BookCode(bookCode, memberNum, memberName);		
 			
 			System.out.print("\n추가 대여 하시겠습니까. \n1 : 추가대여  2 : 대여종료 : ");
 			int num = input.nextInt();

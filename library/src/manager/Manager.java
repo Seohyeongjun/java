@@ -14,12 +14,12 @@ public class Manager {
 	}
 	
 	public static void open() {
-		System.out.println("DW 도서관 입니다.\n");
+		System.out.println("DW 도서관 입니다.");
 
 		Scanner input = new Scanner(System.in);
 		
 		while(true) {
-			System.out.println("1 : 도서 대여 및 반납");
+			System.out.println("\n1 : 도서 대여 및 반납");
 			System.out.println("2 : 관리자모드");
 
 			System.out.print("번호를 선택하세요 : ");
