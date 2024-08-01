@@ -1,32 +1,27 @@
 @charset "UTF-8";
+/*  board.css  */
 
-/* board.css */
-
-#boardWarp{
+#boardWrap{
 	width:700px;
 	margin:0 auto;
 	padding:50px 0;
 }
-
 #boardBox{
 	width:100%;
 	padding:20px 0;
 }
-
 #boardList{
-	border-collapse:collapse;
+	border-collapse: collapse;
 	width:100%;
 }
-
-#boardList .num{ width:100px; text-align:center }
-#boardList .title{ width:400px; }
-#boardList .writer{ width:100px; text-align:center }
-#boardList .hit{ width:100px; text-align:center }
-#boardList td{
+#boardList .num{ width:100px; text-align:center;}
+#boardList .title{width:400px; padding-left:30px;}
+#boardList .writer{ width:100px; text-align:center; }
+#boardList .hit{width:100px; text-align:center;}
+#boardList td{ 
 	border-top:1px solid #aaa;
 	padding:7px 0;
 }
-
 #boardSearchBox{
 	padding:15px 0;
 }
@@ -36,8 +31,8 @@
 	justify-content:center;
 }
 #word{
-	width:300px;
-	outline:none;
+	width:300px; 
+	outline: none;
 	font-size:19px;
 	padding:7px 10px;
 	border-radius:10px;
@@ -57,14 +52,10 @@
 #wrBt{
 	display:inline-block;
 	padding:10px 25px;
-	background:#568941;
+	background:#596ec7;
 	color:white; border-radius:10px;
 }
-
-
-
-
-
-
-
-
+#pageNumbers .arrow{
+	font-size:25px;
+	margin:0 10px;
+}

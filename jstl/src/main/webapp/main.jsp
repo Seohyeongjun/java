@@ -4,15 +4,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Main</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<a href="/member">회원가입</a>		<!--  a태그 get방식(기본) Membercontrol.java의 Membercontrol클래스가 @WebServlet("/member")로 되어 Membercontrol클래스 실행-->
-	<form method="post" action="/member"> <!-- form태크 post방식 -->
+
+	<a href="/member">회원가입</a>
+	
+	<form method="post" action="/member">
 		<input type="text" name="id" placeholder="아이디"><br>
 		<input type="password" name="pw" placeholder="비밀번호"><br>
 		<button>로그인</button>
 	</form>
 	<div style="color:red">${fail }</div>
+	
+
 </body>
 </html>

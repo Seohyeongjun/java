@@ -32,3 +32,7 @@ public class Table {
 }
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> branch 'main' of https://github.com/Seohyeongjun/java_spring.git

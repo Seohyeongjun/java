@@ -18,6 +18,8 @@
   
   <servlet-mapping>
   	<servlet-name>Main</servlet-name>
-  	<url-pattern>*.do</url-pattern>	<!-- *.do는 controller.MainControl에서 작용한다 -->
+  	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
+  
 </web-app>

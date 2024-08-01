@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+		${message }
 
-	${message }
-	<h1>회원가입 작성하는 곳</h1>
-	<a href="/main.jsp">뒤로가기</a>
+		<h1>회원가입 작성하는곳</h1>
+		<a href="/main.jsp">뒤로가기</a>
 </body>
 </html>

@@ -28,27 +28,19 @@ public class InquiryControl extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// response.getWriter().append("Served at: ").append(request.getContextPath());
 		RequestDispatcher rd = request.getRequestDispatcher("inquiry.jsp");
-		rd.forward(request, response);	
+		rd.forward(request, response);
+		
+		// 문의 메뉴를 클릭하여 문의 첫페이지 이동
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// doGet(request, response);
-		
-		String title = request.getParameter("title");
-		String writer = request.getParameter("writer");
-		
-		request.setAttribute("title", title);
-		request.setAttribute("writer", writer);
-		
 		RequestDispatcher rd = request.getRequestDispatcher("inquiry.jsp");
 		rd.forward(request, response);
+		// 문의글 작성 
 	}
 
 }

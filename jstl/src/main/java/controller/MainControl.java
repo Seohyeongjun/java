@@ -22,11 +22,8 @@ import service.MemberJoin;
 @WebServlet("/MainControl")
 public class MainControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-/////////////////////////////////////////////////////////////////////////////////////////////////
+    private HashMap<String , MainActive> map = new HashMap<>();
 	
-	private HashMap<String, MainActive> map = new HashMap<>();
-	
-/////////////////////////////////////////////////////////////////////////////////////////////////	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -40,20 +37,21 @@ public class MainControl extends HttpServlet {
 	 */
 	public void init(ServletConfig config) throws ServletException {
 		ResourceBundle rb = ResourceBundle.getBundle("class_bundle/mainProp");
-		Enumeration key = rb.getKeys();	// key : signUp.do ...
-		
-		while(key.hasMoreElements()) {
-			String k = (String)key.nextElement();	// signUp.do, signIn.do...
-			String value = rb.getString(k);			// service.SignUpPage, service.MemberJoin...
+		Enumeration key = rb.getKeys();
+		while( key.hasMoreElements() ) {
+			String k = (String)key.nextElement(); // signUp.do , signIn.do ....
+			String value =rb.getString(k); // service.MemberJoin 
 			
 			try {
-				Class<?> hcl = Class.forName(value);	// 메모리에 로드
-				MainActive his = (MainActive)hcl.newInstance();
-				map.put(k, his);
+					Class<?> hcl = Class.forName(value);
+					MainActive his = (MainActive)hcl.newInstance(); // 객체 생성
+					map.put(k, his);
 				
 			}catch(Exception e) {
 				System.out.println("mainProp 파일 Map변환 실패");
 			}
+			
+			
 		}
 	}
 
@@ -61,56 +59,49 @@ public class MainControl extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// response.getWriter().append("Served at: ").append(request.getContextPath());
-		doMethode(request, response);
+		doMethod(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// doGet(request, response);
-		doMethode(request, response);
+		doMethod(request, response);
 	}
 	
-	protected void doMethode(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");	// 요청시 입력값에 대한 인코딩
+	protected void doMethod(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String uri = request.getRequestURI();		// home.jsp에서 회원가입을 누를 시 uri : /signUp.do
-		String cmd = uri.substring(uri.lastIndexOf("/")+1);	// cmd : signUp.do
+		request.setCharacterEncoding("UTF-8"); // 요청 시 입력 값에 대한 인코딩
 		
-		String view="/";	// 사용자가 보는 뷰페이지
+		String uri = request.getRequestURI(); // 사용자가 요청한 주소
+		// uri :  /signUp.do
 		
-		MainActive target = map.get(cmd);
+		String cmd = uri.substring( uri.lastIndexOf("/")+1 );
+		// cmd : signUp.do
+		
+		String view="/"; // 사용자가 보는 뷰페이지
+		
+		MainActive target = map.get(cmd); // 요청 주소에 맞는 클래스 객체 가져오기
 		view = target.action(request, response);
 		
-		if(view!=null) {
+		if(view !=null) {
 			RequestDispatcher rd = request.getRequestDispatcher(view);
 			rd.forward(request, response);
 		}
+		
 	}
-}
 
+}
 /*
-if(cmd.equals("signUp.do"))		// 회원가입 양식 페이지 이동
-{
-	if(request.getMethod().equals("POST")) {	// request.getMethod() : 사용자 요청방식
-		MemberJoin save = new MemberJoin();
-		save.join(request, response);
-	}
-	else {
-		view="member/signUp.html";
-	}
-}
-
-	else if(cmd.equals("signIn.do"))	// 로그인 양식 페이지 이동
-	{
-		view="member/signIn.jsp";
-	}
-	else if(cmd.equals("board.do"))
-	{
-		view="member/board.html";
-	}
-*/
+ 		if( cmd.equals("signUp.do") ) { // 회원가입 양식 페이지 이동
+			if( request.getMethod().equals("POST")   ) {   // request.getMethod() : 사용자 요청방식
+				MemberJoin save = new MemberJoin();
+				save.join(request, response);
+			}else {
+				view ="member/signUp.html";
+			}
+		}else if( cmd.equals("signIn.do") ) { //로그인 양식 페이지 이동
+			
+			view = "member/signIn.jsp";
+		}
+ */

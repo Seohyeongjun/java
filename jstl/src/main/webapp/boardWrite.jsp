@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<게시글 작성><br>
-	<a href="/board.jsp">뒤로가기</a><br>
-	${main }<br>
-	${textW }<br>
+		<h1> 나 보드 라이트점 제이네스피야</h1>
 </body>
 </html>

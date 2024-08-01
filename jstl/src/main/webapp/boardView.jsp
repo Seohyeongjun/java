@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<게시글 제목><br>
-	<a href="/board.jsp">뒤로가기</a>
+	<h1>내가 boardView 다!!</h1>
 </body>
 </html>

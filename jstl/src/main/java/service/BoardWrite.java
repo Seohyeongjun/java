@@ -20,7 +20,7 @@ public class BoardWrite implements MainActive{
 			
 			BoardDAO dao=new BoardDAO();
 			dao.save(dto);
-					
+			try { response.sendRedirect("/board.do"); }catch(Exception e) {}		
 			return null;
 		}
 		else {				// 게시글 작성 페이지 요청한 경우

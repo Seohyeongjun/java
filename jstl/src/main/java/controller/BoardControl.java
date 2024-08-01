@@ -28,25 +28,22 @@ public class BoardControl extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		response.sendRedirect("/boardView.jsp");	// 주소변경하고 내용 변경. 주소 boardView.jsp가 나옴
+		// 게시글 제목 클릭하면 요청방식이 get이기때문에
+		// doGet 메서드가 호출된다.
+		
+		RequestDispatcher rd = request.getRequestDispatcher("boardView.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// doGet(request, response);
-		
-		String main=request.getParameter("main");
-		String textW=request.getParameter("textW");
-		
-		request.setAttribute("main", main);
-		request.setAttribute("textW", textW);
+		// 글작성 클릭하면 클라이언트의 요청방식이 post 이기때문에
+		// doPost 메서드가 호출된다.
 		
 		RequestDispatcher rd = request.getRequestDispatcher("boardWrite.jsp");
-		rd.forward(request, response);	// 주소변경 없이 내용 변경. 주소 boardWrite.jsp가 안나옴
+		rd.forward(request, response);
 	}
+
 }

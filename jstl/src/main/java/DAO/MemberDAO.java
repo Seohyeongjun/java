@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import DTO.MemberDTO;
 
+
 public class MemberDAO extends DBConnect{
 	
 	public void save(MemberDTO member) {	// 회원가입 내용 member테이블에 저장, DTO : 순수 데이터만 저장
@@ -15,16 +16,17 @@ public class MemberDAO extends DBConnect{
 			pt.setString(2, member.getUserPassword());
 			pt.setString(3, member.getUserEmail());
 			pt.setString(4, member.getUserName());
-			pt.executeUpdate();
+			pt.executeUpdate(); 
 			
 		}catch(SQLException e) {
 			System.out.println("회원가입 member테이블 저장 실패");
+			e.printStackTrace();
 		}
 	}
 	
 	public boolean login(String id, String pw) {
 		
-		String sql = "select * from member where user_id=? and user_password=?";
+		String sql="select * from member where user_id=? and user_password=?";
 		
 		try {
 			pt = conn.prepareStatement(sql);
