@@ -6,6 +6,28 @@ import java.util.List;
 import DTO.BoardDTO;
 
 public class BoardDAO extends DBConnect{
+
+	public BoardDTO findById(int bid) {	// 게시글 상세 페이지
+		String sql="select * from board where board_id=? ";
+		
+		try {
+			pt = conn.prepareStatement(sql);
+			pt.setInt(1, bid); // board_id의 타입이 int형 타입이기 때문에 setInt로 한다.
+			rs = pt.executeQuery();
+			if(rs.next()) {
+				return new BoardDTO(
+					rs.getInt(1), rs.getString(3), rs.getString(2), 
+					rs.getString(4), rs.getInt(5));
+			}
+		}
+		catch(SQLException e) {
+			System.out.println("게시글 상세 데이터 조회 실패");
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+	}
 	
 	public int totalCount(String keyWord) {	// 게시글 총 갯수
 		
@@ -72,7 +94,40 @@ public class BoardDAO extends DBConnect{
 		}
 		
 	}
-	public void findById(int bid) {
+
+	public void delete(int bid) {
+
+		String sql = "delete from board where board_id=?";
+		
+		try {
+			pt = conn.prepareStatement(sql);
+			pt.setInt(1, bid);
+			pt.executeUpdate();
+			
+		}
+		catch(SQLException e){
+			System.out.println("게시물 삭제 실패");
+			e.printStackTrace();
+		}
 		
 	}
+	
+	public void update(BoardDTO dto) {		// 게시글 수정
+		
+		String sql="update board set title=?, content=? where board_id=?";
+		
+		try {
+			pt = conn.prepareStatement(sql);
+			pt.setString(1, dto.getTitle());
+			pt.setString(2, dto.getContent());
+			pt.setInt(3, dto.getBoard_id());
+			pt.executeUpdate();
+		}
+		catch(SQLException e) {
+			System.out.println("게시글 수정");
+			e.printStackTrace();
+		}
+		
+	}
+
 }

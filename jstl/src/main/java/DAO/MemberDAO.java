@@ -1,6 +1,8 @@
 package DAO;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import DTO.MemberDTO;
 
@@ -44,7 +46,24 @@ public class MemberDAO extends DBConnect{
 		
 		return false;
 	}
-	
 
-	
+	public List<String> findAllUserId() {	// 회원가입 된 전체 아이디 조회
+		
+		String sql="select user_id from member";
+		
+		List<String> list = new ArrayList<>();
+		try {
+			pt = conn.prepareStatement(sql);
+			rs = pt.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getString("user_id"));
+			}
+		}
+		catch(SQLException e) {
+			System.out.println("전제 아이디 조회 실패");
+			e.printStackTrace();
+		}
+		// TODO Auto-generated method stub
+		return list;
+	}	
 }

@@ -19,6 +19,7 @@ public class BoardWrite implements MainActive{
 			BoardDTO dto=new BoardDTO(writer, title, content);
 			
 			BoardDAO dao=new BoardDAO();
+			
 			dao.save(dto);
 			try { response.sendRedirect("/board.do"); }catch(Exception e) {}		
 			return null;

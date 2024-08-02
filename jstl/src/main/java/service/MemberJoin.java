@@ -12,12 +12,12 @@ import DTO.MemberDTO;
 
 public class MemberJoin implements MainActive{
 
-	public String action(HttpServletRequest req, HttpServletResponse res) {
+	public String action(HttpServletRequest request, HttpServletResponse response) {
 		// 회원가입을 처리해 주는 곳 - 사용자가 입력한 값을 데이터베이스에 저장해야 한다.
-		String id = req.getParameter("userId");
-		String pw = req.getParameter("userPassword");
-		String email = req.getParameter("userEmail");
-		String name = req.getParameter("userName");
+		String id = request.getParameter("userId");
+		String pw = request.getParameter("userPassword");
+		String email = request.getParameter("userEmail");
+		String name = request.getParameter("userName");
 		
 		MemberDTO dto = new MemberDTO(id, pw, email, name);
 		// 데이터베이스에 저장하기
@@ -25,7 +25,7 @@ public class MemberJoin implements MainActive{
 		dao.save(dto);
 		
 		try {
-			res.sendRedirect("/");
+			response.sendRedirect("/");
 			
 		}catch(IOException e) {
 			e.printStackTrace();

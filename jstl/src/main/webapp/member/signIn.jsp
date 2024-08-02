@@ -28,7 +28,7 @@
 	</form>
 	<div class="findAndJoin">
 		<p><a href="findUser.jsp">아이디/비밀번호찾기</a></p>
-		<p><a href="/jsp_study1/study/?part=signup">회원가입</a></p>
+		<p><a href="/?part=signup">회원가입</a></p>
 	</div>
 </div>
 </body>
