@@ -2,15 +2,14 @@ package DTO;
 
 import java.time.LocalDate;
 
-import DAO.CommentDAO;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Setter
-@Getter
-@ToString
+//@Setter
+//@Getter
+//@ToString
 @Data
 public class CommentDTO {
 	private int commentId;
@@ -19,14 +18,14 @@ public class CommentDTO {
 	private String comment;
 	private LocalDate writeDate;
 	
-	public static CommentDAO of(int cid, int bid, String writer, String comment, LocalDate date) {
+	public static CommentDTO of(int cid, int bid, String writer,
+			String comment, LocalDate date) {
 		CommentDTO dto = new CommentDTO();
 		dto.commentId=cid;
 		dto.boardId=bid;
 		dto.writer=writer;
 		dto.comment=comment;
 		dto.writeDate=date;
-		
 		return dto;
 	}
 }

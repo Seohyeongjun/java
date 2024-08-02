@@ -1,3 +1,4 @@
+
 package controller;
 
 import java.io.IOException;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class testServlet1
+ * Servlet implementation class TestServlet1
  */
 @WebServlet("/test1")
 public class TestServlet1 extends HttpServlet {
@@ -29,10 +30,10 @@ public class TestServlet1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// response.getWriter().append("MY servlet doGet method").append(request.getContextPath());
-		// response.sendRedirect("index.jsp"); // 사용자요청 주소를 변경하여 페이지 처리 (1)
+		// response.getWriter().append("").append(request.getContextPath());
+		// response.sendRedirect("/"); 사용자요청 주소를변경하여 페이지처리
 		
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");	// 사용자요청 주소를 변경하여 페이지 처리 (2), RequestDispatcher : 중계자, request를 받아 response를 반환
+		RequestDispatcher rd = request.getRequestDispatcher( "index.jsp"  );
 		rd.forward(request, response);
 	}
 

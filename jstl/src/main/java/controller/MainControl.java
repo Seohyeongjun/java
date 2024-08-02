@@ -1,3 +1,4 @@
+
 package controller;
 
 import java.io.IOException;
@@ -76,7 +77,7 @@ public class MainControl extends HttpServlet {
 		String uri = request.getRequestURI(); // 사용자가 요청한 주소
 		// uri :  /signUp.do
 		
-		String cmd = uri.substring( uri.lastIndexOf("/")+1 );	
+		String cmd = uri.substring( uri.lastIndexOf("/")+1 );
 		// cmd : signUp.do
 		
 		String view="/"; // 사용자가 보는 뷰페이지

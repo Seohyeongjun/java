@@ -1,3 +1,4 @@
+
 package service;
 
 import java.io.IOException;
@@ -5,32 +6,29 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.filters.ExpiresFilter.XHttpServletResponse;
-
 import DAO.MemberDAO;
 import DTO.MemberDTO;
 
 public class MemberJoin implements MainActive{
-
-	public String action(HttpServletRequest request, HttpServletResponse response) {
-		// 회원가입을 처리해 주는 곳 - 사용자가 입력한 값을 데이터베이스에 저장해야 한다.
-		String id = request.getParameter("userId");
-		String pw = request.getParameter("userPassword");
-		String email = request.getParameter("userEmail");
-		String name = request.getParameter("userName");
+	
+	public String action(HttpServletRequest req, HttpServletResponse res) {
+		// 회원가입 을 처리해주는 곳  - 사용자가 입력한 값을 데이터베이스에 저장해야 한다.
+		String id = req.getParameter("userId");
+		String pw = req.getParameter("userPassword");
+		String email = req.getParameter("userEmail");
+		String name = req.getParameter("userName");
 		
 		MemberDTO dto = new MemberDTO(id, pw, email, name);
-		// 데이터베이스에 저장하기
+		
+		//데이터베이스 저장 하기
 		MemberDAO dao = new MemberDAO();
 		dao.save(dto);
 		
 		try {
-			response.sendRedirect("/");
-			
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
+				res.sendRedirect("/");
+		} catch (IOException e) {	 e.printStackTrace();   }
 		
 		return null;
 	}
+
 }
