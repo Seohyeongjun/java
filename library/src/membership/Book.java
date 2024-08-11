@@ -12,7 +12,7 @@ public class Book {
 	private String bookName;
 	
 	public static List<Book> bookList = new ArrayList<>();
-	public List<BookLoanList> bookLoanList = new ArrayList<>();
+	public static List<BookLoanList> bookLoanList = new ArrayList<>();
 	public Iterator<Book> itr = bookList.iterator();
 	Member member = new Member();
 	
@@ -64,16 +64,19 @@ public class Book {
 		
 		Book book;
 		itr = bookList.iterator();		// 반복자 재생성
-		
+//		System.out.println("마지막 인덱스 : "+bookList.lastIndexOf(book));
 		while(itr.hasNext())
 		{
 			book=itr.next();
 			if(book.bookCode.equals(bookCode)){	
 				System.out.println("코드번호 : "+bookCode+" ( "+book.bookName+" )를 삭제 합니다.");
-				bookList.remove(book);					
+				System.out.println("길이 : "+bookList.size());
+				bookList.remove(book);	// 마지막 책 삭제하면 에러 발생	
 			}		
 		}
+		System.out.println("길이 : "+bookList.size());
 		
+//		if(bookList.size())
 		System.out.println( "보유 도서 리스트 : \n"+bookList);	
 	}
 	

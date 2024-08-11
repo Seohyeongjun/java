@@ -5,17 +5,22 @@ import java.util.List;
 import java.util.Scanner;
 
 import membership.Book;
+import membership.BookLoanList;
 
 public class MemberActive implements ManagerActive{
 
 	public MemberActive() {}
 	Book book = new Book();	
-	List<Book> bookList = new ArrayList<>();
+	List<Book> bookList = Book.bookList;
+	List<BookLoanList> bookLoanList = Book.bookLoanList;
 	
 	@Override
 	public void bookLoan(int memberNum, String memberName) {	// 대여모드
 		System.out.println("\n대여모드");
 		while(true) {
+			for(Book book:bookList) {
+				System.out.println(book);
+			}
 			System.out.print("책 코드 입력 : ");
 			Scanner input = new Scanner(System.in);
 			String bookCode = input.nextLine();
@@ -56,14 +61,14 @@ public class MemberActive implements ManagerActive{
 				System.out.println("전부 반납입니다.");
 				System.out.println("대여한 책의 코드번호를 확인하세요\n");
 				
-				for(Book list:bookList) {
+				for(BookLoanList list:bookLoanList) {
 					System.out.println(list);
 				}
 				
 				System.out.println();
 				System.out.println("전부 맞으면 1번 누르세요");
 				int num = input.nextInt();
-				
+				// 반납 시 대여 리스트에서 삭제 되야 함
 				break;
 			}
 			else if(bookRet==2) {	// 일부 반납
@@ -71,7 +76,7 @@ public class MemberActive implements ManagerActive{
 				System.out.println("책 코드 입력 : ");		
 				String bookCode = input.nextLine();
 				Book book = new Book(bookCode);
-								
+				// 반납 시 대여 리스트에서 삭제 되야 함								
 				break;
 			}
 			else {

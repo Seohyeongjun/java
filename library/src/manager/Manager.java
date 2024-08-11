@@ -21,6 +21,7 @@ public class Manager {
 		while(true) {
 			System.out.println("\n1 : 도서 대여 및 반납");
 			System.out.println("2 : 관리자모드");
+			System.out.println("0 : 종료");
 
 			System.out.print("번호를 선택하세요 : ");
 			int selMode = input.nextInt();
@@ -36,8 +37,9 @@ public class Manager {
 				
 				//break;
 			}	
-			else if(selMode==3) {
+			else if(selMode==0) {
 				System.out.println("종료");
+				break;
 			}
 			else {
 				System.out.println("1번 또는 2번을 누르세요");
