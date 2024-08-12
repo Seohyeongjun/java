@@ -19,7 +19,7 @@ public class CommentDTO {
 	private LocalDate writeDate;
 	
 	public static CommentDTO of(int cid, int bid, String writer,
-			String comment, LocalDate date) {
+		String comment, LocalDate date) {
 		CommentDTO dto = new CommentDTO();
 		dto.commentId=cid;
 		dto.boardId=bid;
