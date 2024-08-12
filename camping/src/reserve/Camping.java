@@ -65,7 +65,7 @@ public class Camping {
 		boolean reserveOk=true;
 		
 		System.out.println("\n예약을 진행합니다.");
-		System.out.println("예약번호 : "+(++reserveNum));
+		System.out.println("-- 예약번호 : "+(++reserveNum));
 
 		while(true) {
 			System.out.print("\n매주 수요일은 휴무!!\n예약요일 선택 : ");	
@@ -92,14 +92,14 @@ public class Camping {
 			
 			while(true) {
 				reserveOk=true;
-				System.out.print("캠핑구역 선택(1~30번) : ");
+				System.out.print("\n캠핑구역 선택(1~30번) : ");
 				int site = input.nextInt();	
 					
 				if(site<=30) {
 					for(Reserve r:list) {
 						if(r.getSiteNum()== site) {
 							if(day.contains(r.getDay())) {
-								System.out.println("선택하신 장소에 다른 사람이 먼저 예약한 날이 있습니다. 장소를 다시 선택해 주세요");
+								System.out.println("\n선택하신 장소에 다른 사람이 먼저 예약한 날이 있습니다. 장소를 다시 선택해 주세요");
 								reserveOk=false;
 								break;
 							}
